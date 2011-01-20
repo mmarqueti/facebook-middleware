@@ -62,24 +62,25 @@ end
 get '/auth/facebook' do
   redirect client.web_server.authorize_url(
     :redirect_uri => redirect_uri,
-    :scope => 'email,offline_access'
+    :scope => 'email,offline_access,publish_stream'
   )
 end
 
 get '/auth/facebook/callback' do
-  # set :access_token, client.web_server.get_access_token(params[:code], :redirect_uri => redirect_uri)
+  set :access_token, client.web_server.get_access_token(params[:code], :redirect_uri => redirect_uri)
   
   # if settings.fwd_to
   #   go_to = settings.fwd_to
   #   set :fwd_to, nil
   #   redirect go_to
   # else
-    #teste redirect '/'
+  redirect '/'
   # end
   
-  token = client.web_server.get_access_token(params[:code], :redirect_uri => redirect_uri)
-  data = token.post('/97070757020_156989741014043/comments', :message => 'Testando via callback')
-  data
+  # teste
+  # token = client.web_server.get_access_token(params[:code], :redirect_uri => redirect_uri)
+  # data = token.post('/97070757020_156989741014043/comments', :message => 'Testando via callback')
+  # data
 
 end
 
