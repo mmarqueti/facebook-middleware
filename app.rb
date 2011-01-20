@@ -68,20 +68,20 @@ end
 get '/auth/facebook/callback' do
   set :access_token, client.web_server.get_access_token(params[:code], :redirect_uri => redirect_uri)
   
-  if settings.fwd_to
-    go_to = settings.fwd_to
-    set :fwd_to, nil
-    redirect go_to
-  else
+  # if settings.fwd_to
+  #   go_to = settings.fwd_to
+  #   set :fwd_to, nil
+  #   redirect go_to
+  # else
     redirect '/'
-  end
+  # end
 
 end
 
 get '/auth/facebook/get_feed/:id' do
 
   if not settings.access_token
-    set :fwd_to, request.path_info
+    # set :fwd_to, request.path_info
     redirect '/auth/facebook'
   end
   
@@ -175,7 +175,7 @@ end
 get '/auth/facebook/post_comment/:post_id/:text' do
 
   if not settings.access_token
-    set :fwd_to, request.path_info
+    # set :fwd_to, request.path_info
     redirect '/auth/facebook'
   end
   
