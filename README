@@ -1,0 +1,29 @@
+Versão 1.0 do sistema que irá fazer a gestão dos erros gerados pelos crawlers.
+Neste release disponibilizaremos o controle de Logs utilizando a tabela Reload.
+
+:: Dicas do projeto ::
+
+Para iniciar o servidor:
+	ruby -rubygems run.rb 
+	
+Url local de testes
+http://127.0.0.1:4567/
+
+Endereços de demonstração dos relatórios
+
+http://127.0.0.1:4567/relatorio/de_hora_em_hora
+http://127.0.0.1:4567/relatorio/resumo_diario
+http://127.0.0.1:4567/relatorio/resumo_da_semana
+
+
+<!-- <br /> -->
+<!-- <table width="100%" border="0" cellspacing="0" cellpadding="3"> -->
+	<!-- <tr> -->
+		<!-- <td width="150" style="background-color: #bfbfbf; color: #333; font-family: Arial; font-size: 12px; border-bottom: 1px solid #777"> -->
+			<p>Total de mensagens enviadas: <%= @report[:entries_sent].count %></p>
+		<!-- </td> -->
+		<!-- <td  width="450" style="border-bottom: 1px solid #777"> -->
+			<!-- &nbsp; -->
+		<!-- </td> -->
+	<!-- </tr> -->
+<!-- <table> -->

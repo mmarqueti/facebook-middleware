@@ -1,0 +1,335 @@
+<% Time.zone = "Brasilia" %>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <title>EBX - Monitor Report</title>
+   <style type="text/css" media="screen">
+     body {
+         background-color: #eeeeee;
+      }
+
+      a img {
+         border: none;
+      }
+
+      table.bg1 {
+         background-color: #eeeeee;
+      }
+
+      table.bg2 {
+         background-color: #ffffff;
+      }
+
+      td.permission {
+         background-color: #eeeeee;
+         padding: 10px 20px 10px 20px;
+      }
+
+      td.permission p {
+         font-family: Arial;
+         font-size: 11px;
+         font-weight: normal;
+         color: #333333;
+         margin: 0;
+         padding: 0;
+      }
+
+      td.permission p a {
+         font-family: Arial;
+         font-size: 11px;
+         font-weight: normal;
+         color: #333333;
+      }
+
+      td.body {
+         padding: 0 20px 20px 20px;
+         background-color: #ffffff;
+      }
+
+      td.sidebar h3 {
+         font-family: Arial;
+         font-size: 15px;
+         font-weight: bold;
+         color: #333333;
+         margin: 0;
+         padding: 0;
+      }
+
+      body td h2 {
+         font-family: Arial;
+         font-size: 18px;
+         font-weight: bold;
+         color: #333333;
+         margin: 0;
+         padding: 0;
+      }
+
+	  hr{
+	  	color: #ccc;
+	  }
+
+      td.sidebar ul {
+         font-family: Arial;
+         font-size: 13px;
+         font-weight: normal;
+         color: #333333;
+         margin: 6px 0 14px 24px;
+         padding: 0;
+      }
+
+      td.sidebar ul li a {
+         font-family: Arial;
+         font-size: 13px;
+         font-weight: normal;
+         color: #680606;
+      }
+
+      td.sidebar h4 {
+         font-family: Arial;
+         font-size: 13px;
+         font-weight: bold;
+         color: #680606;
+         margin: 6px 0 0 0;
+         padding: 0;
+      }
+
+      td.sidebar h4 a {
+         font-family: Arial;
+         font-size: 13px;
+         font-weight: bold;
+         color: #680606;
+         text-decoration: none;
+      }
+
+      td.sidebar p {
+         font-family: Arial;
+         font-size: 12px;
+         font-weight: normal;
+         color: #333333;
+         margin: 0 0 10px 0;
+         padding: 0;
+      }
+
+      td.sidebar p a {
+         font-family: Arial;
+         font-size: 12px;
+         font-weight: normal;
+         color: #680606;
+         text-decoration: none;
+      }
+
+      td.buttons {
+        padding: 20px 0 0 0;
+      }
+
+      td.mainbar h2 {
+         font-family: Arial;
+         font-size: 16px;
+         font-weight: bold;
+         color: #680606;
+         margin: 0;
+         padding: 0;
+      }
+
+      td.mainbar h2 a {
+         font-family: Arial;
+         font-size: 16px;
+         font-weight: bold;
+         color: #680606;
+         text-decoration: none;
+         margin: 0;
+         padding: 0;
+      }
+
+      td.mainbar img.hr {
+         margin: 0;
+         padding: 0 0 10px 0;
+      }
+
+      td.mainbar p {
+         font-family: Arial;
+         font-size: 13px;
+         font-weight: normal;
+         color: #333333;
+         margin: 0 0 14px 0;
+         padding: 0;
+      }
+
+      td.mainbar p a {
+         font-family: Arial;
+         font-size: 13px;
+         font-weight: normal;
+         color: #680606;
+      }
+
+      td.mainbar p.more a {
+         font-family: Arial;
+         font-size: 13px;
+         font-weight: normal;
+         color: #680606;
+         text-decoration: none;
+      }
+
+      td.mainbar ul {
+         font-family: Arial;
+         font-size: 13px;
+         font-weight: normal;
+         color: #333333;
+         margin: 0 0 14px 24px;
+         padding: 0;
+      }
+
+      td.mainbar ul li a {
+         font-family: Arial;
+         font-size: 13px;
+         font-weight: normal;
+         color: #680606;
+      }
+
+      td.footer {
+         padding: 0 20px 0 20px;
+         background-image: url('footer-bg.gif');
+         background-repeat: no-repeat;
+         background-position: top center;
+         background-color: #333333;
+         height: 61px;
+         vertical-align: middle;
+      }
+
+      td.footer p {
+         font-family: Arial;
+         font-size: 11px;
+         font-weight: normal;
+         color: #ffffff;
+         line-height: 16px;
+         margin: 0;
+         padding: 0;
+      }
+   </style>
+</head>
+<body>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="bg1">
+   <tr>
+      <td align="center">
+
+         <table width="600" border="0" cellspacing="0" cellpadding="0" class="bg2">
+            <tr>
+               <td class="permission" align="left" colspan="2">
+                  <p>EBX - Monitor Report (<%= @report[:month_and_year] %>)</p>
+               </td>
+            </tr>
+            <tr>
+               <td class="header" align="left" width="253">
+                  <img src="http://ebx.bondix.com.br/images/logo_ebx.gif" alt="Header" width="253" height="125" />
+               </td>
+			   <td class="sidebar" align="left">
+					<h3>Monitoramento - <%= @report[:hour] %></h3>
+					<br />
+					<p>
+						Dados brutos - <%= (Time.now-1.hour).strftime('%H:00') %> até <%= (Time.now).strftime('%H:00') %>
+					</p>
+					<br />
+					<!-- <p>
+						Período da consulta - <%= @report[:date_start] %> até <%= @report[:date_end] %>
+					</p> -->
+			   </td>
+            </tr>
+          
+
+
+			<tr>
+				<td colspan="2">
+					<br />
+					<table width="100%" border="0" cellspacing="0" cellpadding="3">
+						<tr>
+							<td width="550" style="background-color: #bfbfbf; color: #333; font-family: Arial; font-size: 12px; border-bottom: 1px solid #777">
+								Total de mensagens recebidas: <%= @report[:entries_received].count %>
+							</td>
+							<!-- <td  width="450" style="border-bottom: 1px solid #777">
+								&nbsp;
+							</td> -->
+						</tr>
+					<table>
+
+					<table width="100%" border="0" cellspacing="0" cellpadding="3">
+					<% @report[:entries_received].each do |e| %>
+					      <tr>
+						      <td style="padding: 0 4px 0 4px">
+							      <%= (e.when_at+2.hour).strftime('%H:%M') %>
+						      </td>
+						      <td style="padding: 0 4px 0 1px">
+							      <%= e.from_user %>
+						      </td>
+						      <td style="font-size: 12px; color: #333; font-family: Arial;">
+							      <%= e.text %>
+						      </td>
+						      <td style="padding: 0 2px">
+							      <strong><a href="<%= e.link %>" target="_blank" style="font-size: 14px; color: #333; font-family: Arial;">Ver</a></strong>
+						      </td>
+					      </tr>
+					<% end %>
+					</table>
+								
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2">
+					<br />
+					<table width="100%" border="0" cellspacing="0" cellpadding="3">
+						<tr>
+							<td width="550" style="background-color: #bfbfbf; color: #333; font-family: Arial; font-size: 12px; border-bottom: 1px solid #777">
+								Total de mensagens enviadas: <%= @report[:entries_sent].count %>
+							</td>
+							<!-- <td  width="450" style="border-bottom: 1px solid #777">
+								&nbsp;
+							</td> -->
+						</tr>
+					<table>
+
+					<table width="100%" border="0" cellspacing="0" cellpadding="3">
+					<% @report[:entries_sent].each do |e| %>
+					      <tr>
+						      <td style="padding: 0 4px 0 4px">
+							      <%= e.when_at.strftime('%H:%M') %>
+						      </td>
+						      <td style="padding: 0 4px 0 1px">
+							      <%= e.from_user %>
+						      </td>
+						      <td style="font-size: 12px; color: #333; font-family: Arial;">
+							      <%= e.text %>
+						      </td>
+						      <td style="padding: 0 2px">
+							      <strong><a href="<%= e.link %>" target="_blank" style="font-size: 14px; color: #333; font-family: Arial;">Ver</a></strong>
+						      </td>
+					      </tr>
+					<% end %>
+					</table>
+					<%= 'Sem mensagens no período' if @report[:entries_sent].empty? %>			
+				</td>
+			</tr>
+
+
+
+					
+					
+          </table>
+         </td>
+        </tr>
+        <tr>
+          <!--
+           <td valign="middle" align="left" class="footer" height="61" colspan="2">
+              <p align="center">&copy;2008-2010 Todos os diretos reservados | Software by <strong style="font-weight: bold">Bondix</strong> <br />
+              <p align="center">Twitter, Techorati, Blogspot, Reclame Aqui, Yahoo! Respostas, Orkut, YouTube e Delicious <br />são marcas de suas respectivas empresas.</p>
+           </td>
+           -->
+        </tr>
+     </table>
+    </td>
+   </tr>
+</table>
+
+</body>
+</html>
+
