@@ -16,7 +16,7 @@ end
 # alguns tem muito comentarios, qual o limite? senao temos que pegar no /post/comments
 # tratar paginacao e ordenacao dos resultados dos comentarios e posts
 
-
+set :environment, :development 
 set :access_token, nil
 set :fwd_to, nil
 
