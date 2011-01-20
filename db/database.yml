@@ -1,18 +1,18 @@
 # local
-adapter: mysql
-username: root
-password: ambrosio
-encoding: utf8
-database: crm20_dev
-host: 127.0.0.1
+# adapter: mysql
+# username: root
+# password: ambrosio
+# encoding: utf8
+# database: crm20_dev
+# host: 127.0.0.1
 
 # 
-# adapter: mysql
-# username: bondix_web
-# password: _w3b
-# encoding: utf8
-# database: bondix_crm
-# host: 207.218.210.58
+adapter: mysql
+username: bondix_web
+password: _w3b
+encoding: utf8
+database: bondix_crm
+host: 207.218.210.58
 # 
 
 # 
