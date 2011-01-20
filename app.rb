@@ -27,17 +27,19 @@ get "/" do
   "<h2>Bondix :: CRM Facebook Midlleware v.: 1.0</h2>
   <br/>Para saber mais envie um <a href='mailto:contato@bondix.com.br'>email</a>
   <br/><br/><br/>Autorizar e logar via Facebook <a href='/auth/facebook'>aqui</a>
-  <!--<br/>Buscar posts e comentarios (140592842625856) <a href='/auth/facebook/get_feed/140592842625856'>aqui</a>-->
   <br/>Buscar posts e comentarios (bondix:97070757020) <a href='/auth/facebook/get_feed/97070757020'>aqui</a>
-  <br/><br/><br/><br/>Ver minhas informacoes <a href='/auth/facebook/get_me'>aqui</a>
-  <br/>Ver somente comentarios <a href='/auth/facebook/get_comments/140592842625856_170393019656469'>aqui</a>
-  <br/>Ver somente comentarios (mais de 2K) <a href='/auth/facebook/get_comments/20531316728_144169955637289'>aqui</a>
-  <br/>Postar mensagem no meu wall <a href='/auth/facebook/post_wall/732449366'>aqui</a>
-  <br/>Postar comentario em um post especifico <a href='/auth/facebook/post_comment/97070757020_156989741014043/teste'>aqui</a>
-  <br/>Processar e salvar no banco de dados <a href='/auth/facebook/processar/140592842625856'>aqui</a>
-  <br/>Processar e salvar no banco de dados (teste carga alta)<a href='/auth/facebook/processar/20531316728'>aqui</a>
   "
 end
+# <!--<br/>Buscar posts e comentarios (140592842625856) <a href='/auth/facebook/get_feed/140592842625856'>aqui</a>-->
+# <br/><br/><br/><br/>Ver minhas informacoes <a href='/auth/facebook/get_me'>aqui</a>
+# <br/>Ver somente comentarios <a href='/auth/facebook/get_comments/140592842625856_170393019656469'>aqui</a>
+# <br/>Ver somente comentarios (mais de 2K) <a href='/auth/facebook/get_comments/20531316728_144169955637289'>aqui</a>
+# <br/>Postar mensagem no meu wall <a href='/auth/facebook/post_wall/732449366'>aqui</a>
+# <br/>Postar comentario em um post especifico <a href='/auth/facebook/post_comment/97070757020_156989741014043/teste'>aqui</a>
+# <br/>Processar e salvar no banco de dados <a href='/auth/facebook/processar/140592842625856'>aqui</a>
+# <br/>Processar e salvar no banco de dados (teste carga alta)<a href='/auth/facebook/processar/20531316728'>aqui</a>
+
+
 
 get "/ping" do
   "<h1>Bondix Midlleware Facebook v.: 1.0</h1>"
