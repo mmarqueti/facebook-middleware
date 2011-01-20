@@ -47,10 +47,11 @@ get "/test" do
 end
 
 def client
-  OAuth2::Client.new('108843935807196', '12b55eeb468b50426febbf96b7804b64', 
+  #dev OAuth2::Client.new('108843935807196', '12b55eeb468b50426febbf96b7804b64', 
+  #prod OAuth2::Client.new('179916468714775', '9a706a0a73cabf3dd31dcb35827a3ced', 
+  
+  OAuth2::Client.new('179916468714775', '9a706a0a73cabf3dd31dcb35827a3ced', 
     :site => 'https://graph.facebook.com'
-    # ,:authorize_url => "https://graph.facebook.com/oauth/authorize"
-    # , :oauth_callback => 'http://localhost:4567/auth/facebook/callback'
   )
 end
 
