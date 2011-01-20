@@ -182,7 +182,7 @@ get '/auth/facebook/post_comment/:post_id/:text' do
   data = settings.access_token.post('/'+params[:post_id]+'/comments', :message => params[:text])
   data.inspect
   
-  status 202
+  return '200'
    
 
 end
