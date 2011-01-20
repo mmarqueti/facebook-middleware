@@ -67,15 +67,19 @@ get '/auth/facebook' do
 end
 
 get '/auth/facebook/callback' do
-  set :access_token, client.web_server.get_access_token(params[:code], :redirect_uri => redirect_uri)
+  # set :access_token, client.web_server.get_access_token(params[:code], :redirect_uri => redirect_uri)
   
   # if settings.fwd_to
   #   go_to = settings.fwd_to
   #   set :fwd_to, nil
   #   redirect go_to
   # else
-    redirect '/'
+    #teste redirect '/'
   # end
+  
+  token = client.web_server.get_access_token(params[:code], :redirect_uri => redirect_uri)
+  data = token.post('/97070757020_156989741014043/comments', :message => 'Testando via callback')
+  data
 
 end
 
