@@ -28,6 +28,7 @@ get "/" do
   <br/>Para saber mais envie um <a href='mailto:contato@bondix.com.br'>email</a>
   <br/><br/><br/>Autorizar e logar via Facebook <a href='/auth/facebook'>aqui</a>
   <br/>Buscar posts e comentarios (bondix:97070757020) <a href='/auth/facebook/get_feed/97070757020'>aqui</a>
+  <br/>Postar comentario em um post especifico <a href='/auth/facebook/post_comment/97070757020_156989741014043/ok-infinito'>aqui</a>
   "
 end
 # <!--<br/>Buscar posts e comentarios (140592842625856) <a href='/auth/facebook/get_feed/140592842625856'>aqui</a>-->
@@ -180,11 +181,8 @@ get '/auth/facebook/post_comment/:post_id/:text' do
   end
   
   data = settings.access_token.post('/'+params[:post_id]+'/comments', :message => params[:text])
-  data.inspect
-  
-  return '200'
-   
-
+  data
+ 
 end
 
 
