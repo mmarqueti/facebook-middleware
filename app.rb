@@ -11,12 +11,8 @@ before do
   ActiveRecord::Base.connection.verify!
 end
 
-# PARA PENSAR
-# mural pode ser o usuario + outros ou soh do usuario, setar uma flag e ver se o data.from.id é igual o da configuracao para aplicar um filtro
-# alguns tem muito comentarios, qual o limite? senao temos que pegar no /post/comments
-# tratar paginacao e ordenacao dos resultados dos comentarios e posts
-
-set :environment, :development 
+# Para mudar como dev
+# set :environment, :development 
 set :access_token, nil
 set :fwd_to, nil
 
@@ -28,7 +24,6 @@ get "/" do
   <br/>Para saber mais envie um <a href='mailto:contato@bondix.com.br'>email</a>
   <br/><br/><br/>Autorizar e logar via Facebook <a href='/auth/facebook'>aqui</a>
   <br/>Buscar posts e comentarios (bondix:97070757020) <a href='/auth/facebook/get_feed/97070757020'>aqui</a>
-  <br/>Postar comentario em um post especifico <a href='/auth/facebook/post_comment/97070757020_156989741014043/ok-infinito'>aqui</a>
   "
 end
 # <!--<br/>Buscar posts e comentarios (140592842625856) <a href='/auth/facebook/get_feed/140592842625856'>aqui</a>-->
@@ -39,7 +34,7 @@ end
 # <br/>Postar comentario em um post especifico <a href='/auth/facebook/post_comment/97070757020_156989741014043/teste'>aqui</a>
 # <br/>Processar e salvar no banco de dados <a href='/auth/facebook/processar/140592842625856'>aqui</a>
 # <br/>Processar e salvar no banco de dados (teste carga alta)<a href='/auth/facebook/processar/20531316728'>aqui</a>
-
+# <br/>Postar comentario em um post especifico <a href='/auth/facebook/post_comment/97070757020_156989741014043/ok-infinito'>aqui</a>
 
 
 get "/ping" do
@@ -54,7 +49,7 @@ def client
   #dev OAuth2::Client.new('108843935807196', '12b55eeb468b50426febbf96b7804b64', 
   #prod OAuth2::Client.new('179916468714775', '9a706a0a73cabf3dd31dcb35827a3ced', 
   
-  OAuth2::Client.new('179916468714775', '9a706a0a73cabf3dd31dcb35827a3ced', 
+  OAuth2::Client.new('108843935807196', '12b55eeb468b50426febbf96b7804b64', 
     :site => 'https://graph.facebook.com'
   )
 end
